@@ -25,10 +25,11 @@ jobs:
 
     - name: Fix the permissions of mvnw command
       run: chmod +x mvnw 
-      
+
     - name: Build the Code
       run: ./mvnw package
 
-      # - name: Verify the Build is Created or Not
-      
+    - name: Verify the Build is Created or Not
+      run: ls -l target/*.war
+
       # - name: Deploy the Build to Tomcat
