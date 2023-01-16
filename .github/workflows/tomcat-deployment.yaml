@@ -16,13 +16,16 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '17'
+
     - name: Verify Java Version 
       run: java -version
 
-    #- name: Download the Code
-      
-      # - name: Build the Code
-      
+    - name: Download the Code
+      uses: actions/checkout@v3
+
+    - name: Build the Code
+      run: ./mvnw package
+
       # - name: Verify the Build is Created or Not
       
       # - name: Deploy the Build to Tomcat
