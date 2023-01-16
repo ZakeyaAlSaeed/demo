@@ -9,16 +9,16 @@ on:
 jobs:
   build-springboot-app:
     name: Build Springboot Application
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest 
     steps:
-      - name: Install Java
-        uses: action/setup-java@v3
-        with: 
-          java-version: '17'
-          distribution: 'temurin'
+    - name: Install Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+    - name: Verify Java Version 
+      run: java -version
 
-      - name: Verify Java Version
-        run: java -version
       # - name: Download the Code
       
       # - name: Build the Code
