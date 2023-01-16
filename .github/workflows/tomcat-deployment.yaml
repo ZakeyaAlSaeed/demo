@@ -1,0 +1,28 @@
+name: Deploying Springboot (War) to Tomcat Azure Windows Server
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-springboot-app:
+    name: Build Springboot Application
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Java
+        uses: action/set-up-java@v3
+        with: 
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Verify Java Version
+        run: java -version
+      # - name: Download the Code
+      
+      # - name: Build the Code
+      
+      # - name: Verify the Build is Created or Not
+      
+      # - name: Deploy the Build to Tomcat

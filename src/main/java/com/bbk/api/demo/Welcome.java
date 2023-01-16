@@ -8,6 +8,6 @@ public class Welcome {
 
 	@GetMapping("/welcome")
 	public String welcome() {
-		return "Welcome to DevSecOps Class";
+		return "Welcome to DevSecOps Class"; 
 	}
 }
