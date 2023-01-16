@@ -33,13 +33,13 @@ jobs:
       run: ls -l target/*.war
 
     - name: copy file via ssh password
-        uses: appleboy/scp-action@master
-        with:
-          host: 4.227.149.60
-          username: zak
-          password: Zak@12345678
-          port: 22
-          source: 'target/demo-0.0.1-SNAPSHOT.war'
-          target: 'c:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\'
+      uses: appleboy/scp-action@master
+      with:
+        host: 4.227.149.60
+        username: zak
+        password: Zak@12345678
+        port: 22
+        source: 'target/demo-0.0.1-SNAPSHOT.war'
+        target: 'c:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\'
 
       # - name: Deploy the Build to Tomcat
