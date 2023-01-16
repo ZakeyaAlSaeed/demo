@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Java
-        uses: action/set-up-java@v3
+        uses: action/setup-java@v3
         with: 
           java-version: '17'
           distribution: 'temurin'
