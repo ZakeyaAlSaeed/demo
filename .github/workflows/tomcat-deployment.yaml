@@ -54,6 +54,16 @@ jobs:
         post_upload: echo "This will be executed after the upload!"
         ssh_options: -o StrictHostKeyChecking=no
         scp_options: -v
+    
+    - name: Upload to github
+      uses: actions/checkout@v2
+      run: mkdir -p ./target
+      run: echo demo-${{github.run_number}} > ./target/demo-${{github.run_number}}.war
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact
+        path: ./target/demo-${{github.run_number}}.war
 
   deployment-springboot-app:
     name: Deploy Springboot Application
@@ -72,3 +82,7 @@ jobs:
           post_upload: echo "This will be executed after the upload!"
           ssh_options: -o StrictHostKeyChecking=no
           scp_options: -v
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: my-artifact
