@@ -32,6 +32,13 @@ jobs:
     - name: Verify the Build is Created or Not
       run: ls -l target/*.war
 
+    - name: Rename WAR file
+      run: mv demo-0.0.1-SNAPSHOT.war demo-"${GITHUB_RUN_NUMBER}"-SNAPSHOT.war
+    
+    - name: Verify renamed
+      run: ls -l target/*.war
+    
+
     # - name: copy file via ssh password
     #   uses: appleboy/scp-action@master
     #   with:
