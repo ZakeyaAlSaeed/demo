@@ -39,7 +39,7 @@ jobs:
     #   run: ls -l target/*.war
 
     - name: Rename
-      run: sed 's/0.0.1-SNAPSHOT/${{github.run_number}}/' ./pom.xml
+      run: sed "s/0.0.1-SNAPSHOT/${{github.run_number}}/g" ./pom.xml
 
     - name: Verify snapshot renamed
       run: ls -l target/*.war
