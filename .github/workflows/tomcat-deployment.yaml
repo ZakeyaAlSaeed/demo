@@ -27,7 +27,7 @@ jobs:
       run: chmod +x mvnw 
     
     - name: Rename
-      run: sed "s/0.0.1-SNAPSHOT/${{github.run_number}}-SNAPSHOT/g" ./pom.xml
+      run: sed -i "s/0.0.1-SNAPSHOT/${{github.run_number}}-SNAPSHOT/g" .pom.xml
 
     - name: Build the Code
       run: ./mvnw package
