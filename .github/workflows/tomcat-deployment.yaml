@@ -33,21 +33,21 @@ jobs:
       run: ls -l target/*.war
 
     - name: Rename WAR file
-      run: mv ./target/demo-0.0.1-SNAPSHOT.war ./target/demo-"${GITHUB_RUN_NUMBER}"-SNAPSHOT.war
+      run: mv ./target/demo-0.0.1-SNAPSHOT.war ./target/"${GITHUB_RUN_NUMBER}".war
     
     - name: Verify renamed
       run: ls -l target/*.war
 
-    # - name: Deploy the Build to Tomcat
-    #   uses: mdallasanta/ssh-scp-deploy@v1.2.0
-    #   with:
-    #     local: './target/demo-0.0.1-SNAPSHOT.war'                                                 
-    #     remote: 'C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\'                                               
-    #     host: ${{secrets.HOST}}                                  
-    #     port: ${{secrets.PORT}}
-    #     user: ${{secrets.USER}}
-    #     password: ${{secrets.PASSWORD}}
-    #     pre_upload: echo "This will be executed before the upload!"
-    #     post_upload: echo "This will be executed after the upload!"
-    #     ssh_options: -o StrictHostKeyChecking=no
-    #     scp_options: -v
+    - name: Deploy the Build to Tomcat
+      uses: mdallasanta/ssh-scp-deploy@v1.2.0
+      with:
+        local: './target/demo-0.0.1-SNAPSHOT.war'                                                 
+        remote: 'C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\'                                               
+        host: ${{secrets.HOST}}                                  
+        port: ${{secrets.PORT}}
+        user: ${{secrets.USER}}
+        password: ${{secrets.PASSWORD}}
+        pre_upload: echo "This will be executed before the upload!"
+        post_upload: echo "This will be executed after the upload!"
+        ssh_options: -o StrictHostKeyChecking=no
+        scp_options: -v
