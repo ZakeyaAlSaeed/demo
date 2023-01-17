@@ -75,7 +75,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: my-artifact
-      -run: ls
+      - run: ls
 
       - name: Deploy the Build to Tomcat
         uses: mdallasanta/ssh-scp-deploy@v1.2.0
