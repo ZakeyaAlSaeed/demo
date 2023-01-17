@@ -55,7 +55,7 @@ jobs:
         ssh_options: -o StrictHostKeyChecking=no
         scp_options: -v
 
-deployment-springboot-app:
+  deployment-springboot-app:
     name: Deploy Springboot Application
     runs-on: ubuntu-latest
     needs: build-springboot-app
