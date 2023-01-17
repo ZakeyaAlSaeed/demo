@@ -41,7 +41,7 @@ jobs:
     - name: Rename
       run: sed 's/0.0.1-SNAPSHOT/${{github.run_number}}/' ./pom.xml
 
-    - name: Verify renamed
+    - name: Verify snapshot renamed
       run: ls -l target/*.war
 
     # - name: Deploy the Build to Tomcat
