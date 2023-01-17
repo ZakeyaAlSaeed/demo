@@ -73,7 +73,7 @@ jobs:
       - name: Deploy the Build to Tomcat
         uses: mdallasanta/ssh-scp-deploy@v1.2.0
         with:
-          local: './target/demo-${{github.run_number}}.war.war'                                                 
+          local: './target/demo-${{github.run_number}}.war'                                                 
           remote: 'C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\'                                               
           host: ${{secrets.HOST}}                                  
           user: ${{secrets.USER}}
