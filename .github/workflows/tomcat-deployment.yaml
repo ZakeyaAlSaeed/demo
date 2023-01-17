@@ -33,7 +33,7 @@ jobs:
       run: ls -l target/*.war
 
     - name: Rename WAR file
-      run: mv ./target/demo-0.0.1-SNAPSHOT.war ./target/"${GITHUB_RUN_NUMBER}".war
+      run: mv ./target/demo-0.0.1-SNAPSHOT.war ./target/${GITHUB_RUN_NUMBER}.war
     
     - name: Verify renamed
       run: ls -l target/*.war
