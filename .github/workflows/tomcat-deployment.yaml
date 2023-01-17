@@ -25,6 +25,9 @@ jobs:
 
     - name: Fix the permissions of mvnw command
       run: chmod +x mvnw 
+    
+    - name: Rename
+      run: sed "s/0.0.1-SNAPSHOT/${{github.run_number}}-SNAPSHOT/g" ./pom.xml
 
     - name: Build the Code
       run: ./mvnw package
@@ -37,12 +40,6 @@ jobs:
     
     # - name: Verify renamed
     #   run: ls -l target/*.war
-
-    - name: Rename
-      run: sed "s/0.0.1-SNAPSHOT/${{github.run_number}}-SNAPSHOT/g" ./pom.xml
-
-    - name: Verify snapshot renamed
-      run: ls -l target/*.war
 
     # - name: Deploy the Build to Tomcat
     #   uses: mdallasanta/ssh-scp-deploy@v1.2.0
