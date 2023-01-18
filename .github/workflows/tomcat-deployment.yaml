@@ -65,5 +65,10 @@ jobs:
           ssh_options: -o StrictHostKeyChecking=no
           scp_options: -v
       
+  verify-springboot-app:
       - name: Health check 
+      runs-on: ubuntu-latest
+      needs: deployment-springboot-app
+      steps:
+        - name: Using CURL to verify the app
         run: curl ${{secrets.HOST}}:8080/demo-${{github.run_number}}/actuator/health
