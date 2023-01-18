@@ -66,4 +66,4 @@ jobs:
           scp_options: -v
       
       - name: Health check 
-        run: curl ${{secrets.HOST}}/demo-${{github.run_number}}/actuator/health
+        run: curl ${{secrets.HOST}}:8080/demo-${{github.run_number}}/actuator/health
