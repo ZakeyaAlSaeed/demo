@@ -71,4 +71,4 @@ jobs:
     needs: deployment-springboot-app
     steps:
       - name: Using CURL to verify the app
-      run: curl ${{secrets.HOST}}:8080/demo-${{github.run_number}}/actuator/health
+        run: curl ${{secrets.HOST}}:8080/demo-${{github.run_number}}/actuator/health
