@@ -55,10 +55,10 @@ jobs:
     #     ssh_options: -o StrictHostKeyChecking=no
     #     scp_options: -v
     
-    - uses: actions/checkout@v2
+    # - uses: actions/checkout@v2
       
-    - run: mkdir -p ./target
-    - run: echo demo-${{github.run_number}} > ./target/demo-${{github.run_number}}.war
+    # - run: mkdir -p ./target
+    # - run: echo demo-${{github.run_number}} > ./target/demo-${{github.run_number}}.war
 
     - uses: actions/upload-artifact@v2
       with:
