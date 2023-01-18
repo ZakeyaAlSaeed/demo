@@ -35,31 +35,6 @@ jobs:
     - name: Verify the Build is Created or Not
       run: ls -l target/*.war
 
-    # - name: Rename WAR file
-    #   run: mv ./target/demo-0.0.1-SNAPSHOT.war ./target/demo-version-${{github.run_number}}.war
-    
-    # - name: Verify renamed
-    #   run: ls -l target/*.war
-
-    # - name: Deploy the Build to Tomcat
-    #   uses: mdallasanta/ssh-scp-deploy@v1.2.0
-    #   with:
-    #     local: './target/demo-${{github.run_number}}.war'                                             
-    #     remote: 'C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\'                                               
-    #     host: ${{secrets.HOST}}                                  
-    #     port: ${{secrets.PORT}}
-    #     user: ${{secrets.USER}}
-    #     password: ${{secrets.PASSWORD}}
-    #     pre_upload: echo "This will be executed before the upload!"
-    #     post_upload: echo "This will be executed after the upload!"
-    #     ssh_options: -o StrictHostKeyChecking=no
-    #     scp_options: -v
-    
-    # - uses: actions/checkout@v2
-      
-    # - run: mkdir -p ./target
-    # - run: echo demo-${{github.run_number}} > ./target/demo-${{github.run_number}}.war
-
     - uses: actions/upload-artifact@v2
       with:
         name: my-artifact
@@ -89,3 +64,6 @@ jobs:
           post_upload: echo "This will be executed after the upload!"
           ssh_options: -o StrictHostKeyChecking=no
           scp_options: -v
+      
+      - name: Health check 
+        run: curl http://demo-${{github.run_number}}/actuator/health
